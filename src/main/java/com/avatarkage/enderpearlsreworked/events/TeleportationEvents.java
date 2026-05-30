@@ -10,7 +10,7 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import java.util.UUID;
 
 /*? if forge {*/
-/*import net.minecraft.util.hit.EntityHitResult;
+import net.minecraft.util.hit.EntityHitResult;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.EntityJoinLevelEvent;
 import net.minecraftforge.event.entity.ProjectileImpactEvent;
@@ -20,10 +20,10 @@ import net.minecraftforge.event.entity.player.AttackEntityEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-*//*?}*/
+/*?}*/
 
 /*? if neoforge {*/
-import net.minecraft.util.hit.EntityHitResult;
+/*import net.minecraft.util.hit.EntityHitResult;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
 import net.neoforged.neoforge.event.entity.ProjectileImpactEvent;
@@ -32,7 +32,7 @@ import net.neoforged.neoforge.event.entity.living.LivingEntityUseItemEvent;
 import net.neoforged.neoforge.event.entity.player.AttackEntityEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 import net.neoforged.neoforge.event.tick.LevelTickEvent;
-/*?}*/
+*//*?}*/
 
 /*? if fabric {*/
 /*import dev.architectury.event.EventResult;
@@ -45,30 +45,30 @@ import net.fabricmc.fabric.api.event.player.UseItemCallback;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 *//*?}*/
 
-/*? if forge {*/ /*@Mod.EventBusSubscriber *//*?}*/
+/*? if forge {*/ @Mod.EventBusSubscriber /*?}*/
 public class TeleportationEvents {
 
     /*? if forgeLike {*/
     @SubscribeEvent
-    public /*? if forge {*/ /*static *//*?}*/ void onProjectileSpawn(EntityJoinLevelEvent event) {
+    public /*? if forge {*/ static /*?}*/ void onProjectileSpawn(EntityJoinLevelEvent event) {
         Entity projectile = event.getEntity();
         if (!ModHandlers.isPearlEntity(projectile)) return;
         ModHandlers.projectileSpawn(projectile);
     }
 
     @SubscribeEvent
-    public /*? if forge {*/ /*static *//*?}*/ void onProjectileImpact(ProjectileImpactEvent event) {
+    public /*? if forge {*/ static /*?}*/ void onProjectileImpact(ProjectileImpactEvent event) {
         ModHandlers.handleImpact(event.getEntity());
     }
 
     @SubscribeEvent
-    public /*? if forge {*/ /*static *//*?}*/ void onProjectileShot(ProjectileImpactEvent event) {
+    public /*? if forge {*/ static /*?}*/ void onProjectileShot(ProjectileImpactEvent event) {
         if (!(event.getRayTraceResult() instanceof EntityHitResult)) return;
         ModHandlers.handleProjectileShot(event.getEntity(), null);
     }
 
     @SubscribeEvent
-    public /*? if forge {*/ /*static *//*?}*/ void onRightClickItem(PlayerInteractEvent.RightClickItem event) {
+    public /*? if forge {*/ static /*?}*/ void onRightClickItem(PlayerInteractEvent.RightClickItem event) {
         if (!(event.getEntity() instanceof ServerPlayerEntity player)) return;
         UUID playerUUID = player.getUuid();
         if (!TeleportationState.isTeleporting(playerUUID)) return;
@@ -76,7 +76,7 @@ public class TeleportationEvents {
     }
 
     @SubscribeEvent
-    public /*? if forge {*/ /*static *//*?}*/ void onRightClickBlock(PlayerInteractEvent.RightClickBlock event) {
+    public /*? if forge {*/ static /*?}*/ void onRightClickBlock(PlayerInteractEvent.RightClickBlock event) {
         if (!(event.getEntity() instanceof ServerPlayerEntity player)) return;
         UUID playerUUID = player.getUuid();
         if (!TeleportationState.isTeleporting(playerUUID)) return;
@@ -84,7 +84,7 @@ public class TeleportationEvents {
     }
 
     @SubscribeEvent
-    public /*? if forge {*/ /*static *//*?}*/ void onLeftClickBlock(PlayerInteractEvent.LeftClickBlock event) {
+    public /*? if forge {*/ static /*?}*/ void onLeftClickBlock(PlayerInteractEvent.LeftClickBlock event) {
         if (!(event.getEntity() instanceof ServerPlayerEntity player)) return;
         UUID playerUUID = player.getUuid();
         if (!TeleportationState.isTeleporting(playerUUID)) return;
@@ -92,7 +92,7 @@ public class TeleportationEvents {
     }
 
     @SubscribeEvent
-    public /*? if forge {*/ /*static *//*?}*/ void onEntityInteract(PlayerInteractEvent.EntityInteract event) {
+    public /*? if forge {*/ static /*?}*/ void onEntityInteract(PlayerInteractEvent.EntityInteract event) {
         if (!(event.getEntity() instanceof ServerPlayerEntity player)) return;
         UUID playerUUID = player.getUuid();
         if (!TeleportationState.isTeleporting(playerUUID)) return;
@@ -100,7 +100,7 @@ public class TeleportationEvents {
     }
 
     @SubscribeEvent
-    public /*? if forge {*/ /*static *//*?}*/ void onAttackEntity(AttackEntityEvent event) {
+    public /*? if forge {*/ static /*?}*/ void onAttackEntity(AttackEntityEvent event) {
         if (!(event.getEntity() instanceof ServerPlayerEntity player)) return;
         UUID playerUUID = player.getUuid();
         if (!TeleportationState.isTeleporting(playerUUID)) return;
@@ -108,7 +108,7 @@ public class TeleportationEvents {
     }
 
     @SubscribeEvent
-    public /*? if forge {*/ /*static *//*?}*/ void onItemUseStart(LivingEntityUseItemEvent.Start event) {
+    public /*? if forge {*/ static /*?}*/ void onItemUseStart(LivingEntityUseItemEvent.Start event) {
         if (!(event.getEntity() instanceof ServerPlayerEntity player)) return;
         if (player.getWorld().isClient()) return;
         UUID playerUUID = player.getUuid();
@@ -118,7 +118,7 @@ public class TeleportationEvents {
     /*?}*/
 
     /*? if forge {*/
-    /*@SubscribeEvent
+    @SubscribeEvent
     public static void onPlayerDamage(LivingHurtEvent event) {
         if (!(event.getEntity() instanceof ServerPlayerEntity player)) return;
         if (player.getWorld().isClient()) return;
@@ -133,10 +133,10 @@ public class TeleportationEvents {
         if (server == null) return;
         ModHandlers.handleServerTick(server);
     }
-    *//*?}*/
+    /*?}*/
 
     /*? if neoforge {*/
-    @SubscribeEvent
+    /*@SubscribeEvent
     public void onPlayerDamage(LivingDamageEvent.Post event) {
         if (!(event.getEntity() instanceof ServerPlayerEntity player)) return;
         if (player.getWorld().isClient()) return;
@@ -151,7 +151,7 @@ public class TeleportationEvents {
         if (server == null) return;
         ModHandlers.handleServerTick(server);
     }
-    /*?}*/
+    *//*?}*/
 
     /*? if fabric {*/
     /*public static void init() {

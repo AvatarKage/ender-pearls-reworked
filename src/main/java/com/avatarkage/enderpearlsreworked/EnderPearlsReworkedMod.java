@@ -9,17 +9,17 @@ import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 
 /*? if forge {*/
-/*import dev.architectury.platform.forge.EventBuses;
+import dev.architectury.platform.forge.EventBuses;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-*//*?}*/
+/*?}*/
 
 /*? if neoforge {*/
-import net.neoforged.fml.common.Mod;
+/*import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.common.NeoForge;
-/*?}*/
+*//*?}*/
 
 /*? if fabric {*/
 /*import net.fabricmc.api.ModInitializer;
@@ -39,7 +39,7 @@ public final class EnderPearlsReworkedMod /*? if fabric {*/ /*implements ModInit
     public record TeleportConfig(ParticleEffect particle, SoundEvent sound, EntityType<?> entityType, float entityChance) {}
 
     /*? if forge {*/
-    /*public EnderPearlsReworkedMod(FMLJavaModLoadingContext ctx) {
+    public EnderPearlsReworkedMod(FMLJavaModLoadingContext ctx) {
         var modEventBus = ctx.getModEventBus();
         EventBuses.registerModEventBus(EnderPearlsReworkedMod.MOD_ID, modEventBus);
 
@@ -50,14 +50,14 @@ public final class EnderPearlsReworkedMod /*? if fabric {*/ /*implements ModInit
     private void commonSetup(final FMLCommonSetupEvent event) {
         ModNetwork.register();
     }
-    *//*?}*/
+    /*?}*/
 
     /*? if neoforge {*/
-    public EnderPearlsReworkedMod() {
+    /*public EnderPearlsReworkedMod() {
         ModNetwork.register();
         NeoForge.EVENT_BUS.register(new TeleportationEvents());
     }
-    /*?}*/
+    *//*?}*/
 
     /*? if fabric {*/
     /*@Override
