@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "${id}",
+  "version": "${version}",
+  "name": "${name}",
+  "description": "${description}",
+  "authors": ["AvatarKage"],
+  "contact": {
+    "homepage": "https://avatarkage.com/projects/minecraft/mods/ender-pearls-reworked",
+    "sources": "https://github.com/avatarkage/ender-pearls-reworked",
+    "issues": "https://github.com/avatarkage/ender-pearls-reworked/issues"
+  },
+  "license": "Copyright (c) 2026 AvatarKage. All rights reserved. This modification is not an official Minecraft product and is not approved by or associated with Mojang or its affiliates. For more information, see: https://avatarka.ge/legal",
+  "icon": "pack.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "${group}.${id}.EnderPearlsReworkedMod"
+    ],
+    "client": [
+      "${group}.${id}.client.TeleportationRenderer"
+    ]
+  },
+  "depends": {
+    "fabricloader": "*",
+    "fabric-api": ">=${fabricVersion}",
+    "minecraft": ">=${minecraftVersion}"
+  }
+}

@@ -1,0 +1,27 @@
+modLoader = "javafml"
+loaderVersion = "*"
+issueTrackerURL = "https://github.com/avatarkage/ender-pearls-reworked/issues"
+license = "Copyright (c) 2026 AvatarKage. All rights reserved. This modification is not an official Minecraft product and is not approved by or associated with Mojang or its affiliates. For more information, see: https://avatarka.ge/legal"
+
+[[mods]]
+modId = "${id}"
+version = "${version}"
+displayName = "${name}"
+displayURL="https://avatarkage.com/projects/minecraft/mods/ender-pearls-reworked"
+authors = "AvatarKage"
+# credits =""
+description = '''
+${description}
+'''
+logoFile = "../pack.png"
+logoBlur = false
+
+[modproperties.modmenu]
+sources="https://github.com/avatarkage/ender-pearls-reworked"
+
+[[dependencies.${id}]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[${minecraftVersion},)"
+ordering = "NONE"
+side = "CLIENT"
