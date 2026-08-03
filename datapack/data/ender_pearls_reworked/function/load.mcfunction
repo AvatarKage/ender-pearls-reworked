@@ -1,0 +1,3 @@
+scoreboard objectives add ender_pearls_reworked.is_sneaking minecraft.custom:sneak_time
+scoreboard objectives add ender_pearls_reworked.previous_gamemode dummy
+scoreboard objectives add ender_pearls_reworked.summon_endermite dummy

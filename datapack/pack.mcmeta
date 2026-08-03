@@ -1,0 +1,25 @@
+{
+  "pack": {
+    "pack_format": 107.1,
+    "supported_formats": [1, 999],
+    "min_format": 48,
+    "max_format": 999,
+    "description": "Reworks the Ender Pearl mechanic, giving you complete control over how and when you teleport."
+  },
+  "overlays": {
+    "entries": [
+      {
+        "directory": "overlay_1_21_1",
+        "formats": [48, 87],
+        "min_format": 48,
+        "max_format": 87
+      },
+       {
+        "directory": "overlay_1_21_4",
+        "formats": [61, 61],
+        "min_format": 61,
+        "max_format": 61
+      }
+    ]
+  }
+}
